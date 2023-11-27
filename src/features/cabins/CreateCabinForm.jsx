@@ -8,6 +8,7 @@ import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { id: editId, ...editValues } = cabinToEdit;
@@ -24,6 +25,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { isEditing, EditCabin } = useEditCabin();
 
   const isLoading = isCreating || isEditing;
+
 
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
